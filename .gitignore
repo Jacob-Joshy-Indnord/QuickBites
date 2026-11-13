@@ -1,0 +1,20 @@
+# .gitignore — files Git must never track in the QuickBites backend.
+#
+# This file lists generated or machine-local artefacts that should stay out of
+# version control: Python bytecode caches (__pycache__, *.pyc), pytest's cache
+# directory, virtual environments (.venv, venv), packaging output such as
+# *.egg-info, build and dist directories, and local environment files (.env)
+# that may hold database URLs or other secrets. Keeping these out of the
+# repository avoids noisy diffs, prevents leaking credentials, and keeps every
+# developer's checkout reproducible from pyproject.toml alone. It contains no
+# functions; each non-comment line is a glob pattern evaluated by Git relative
+# to the repository root, and new tooling artefacts should be appended here.
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+.env
