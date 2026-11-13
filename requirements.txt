@@ -1,0 +1,5 @@
+fastapi
+sqlalchemy
+psycopg[binary]
+httpx
+pytest
