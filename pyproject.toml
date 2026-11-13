@@ -1,0 +1,30 @@
+# pyproject.toml — QuickBites backend project definition.
+#
+# This file declares the Python package metadata, the runtime dependencies and
+# the developer/test dependencies for the QuickBites backend service. The
+# runtime stack is Python 3.11+, FastAPI for the REST + OpenAPI layer,
+# SQLAlchemy Core with psycopg 3 for PostgreSQL/PostGIS access, and Shapely for
+# geometry validation inside the application tier. The optional "test" extra
+# installs pytest and httpx so the suite in tests/ can drive the FastAPI app
+# through its TestClient. The [tool.pytest.ini_options] section pins the test
+# path and adds the repository root to sys.path so that `import app` works
+# without installing the package. It contains no functions; it is pure configuration.
+
+[project]
+name = "quickbites-backend"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.110",
+    "pydantic>=2.6",
+    "shapely>=2.0",
+    "sqlalchemy>=2.0",
+    "psycopg[binary]>=3.1",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8", "httpx>=0.27"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
